@@ -14,44 +14,39 @@
                 return flag;
             },
             async test() {
-                const result = await reqLoginEmail('yjh15727742367@163.com','abc159951');
+                const result = await reqLoginEmail('yjh15727742367@163.com', 'abc159951');
                 console.log(result);
             }
         },
         mounted: function () {
-            this.test();
-            /*
+            // this.test();
+            let pathstr = this.$route.path;
             if (this._isMobile()) {
                 //是手机端，需要将页面切换成手机端路由
-                let pathstr = this.$route.path;
-                let regex = /pc(\S*)/;
+                let regex = /\/pc\/(\S*)/;
                 //测试是否匹配，进入则说明路由切换到电脑端
                 if (regex.test(pathstr)) {
                     let temp = pathstr.match(regex);
-                    console.log(temp)
                     if (temp != null) {
-                        pathstr = "/phone" + temp[1]
+                        pathstr = "/phone/" + temp[1]
                     }
                     // 切换到手机端路由
                     this.$router.replace(pathstr);
                 }
             } else {
                 //是pc端，需要将页面切换到pc端路由
-                let pathstr = this.$route.path;
-                console.log(pathstr);
-                let regex = /phone(\S*)/;
+                let regex = /\/phone\/(\S*)/;
                 //测试是否匹配，进入则说明路由切换到手机端
                 if (regex.test(pathstr)) {
                     let temp = pathstr.match(regex);
-                    console.log(temp)
                     if (temp != null) {
-                        pathstr = "/pc" + temp[1]
+                        pathstr = "/pc/" + temp[1]
                     }
                     // 切换到pc端路由
                     this.$router.replace(pathstr);
                 }
             }
-            */
+
         },
     }
 
