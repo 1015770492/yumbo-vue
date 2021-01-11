@@ -64,16 +64,24 @@
 
             <el-checkbox @change="selectedList(listItem2)" v-for="listItem2 in articleForm.categoryList"
                          :key="listItem2">{{ listItem2 }}</el-checkbox>
-
           </el-form-item>
         </span>
 
         <div>
           <span class="el-col-12">
-            <el-button @click="submitArticleForm" class="iconfont iconfabu el-button-style" type="danger"
-                       plain> 发布文章</el-button>
-            <el-button class="iconfont iconcaogao el-button-style" type="danger" plain> 存为草稿</el-button>
-            <el-button class="iconfont iconfanhui el-button-style" type="info" plain>返回</el-button>
+            <el-button @click="submitArticleForm" class="el-button-style" type="danger"
+                       plain>
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-publish"></use>
+              </svg> 发布文章</el-button>
+            <el-button class="iconfont iconcaogao el-button-style" type="danger" plain>
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-save-draft"></use>
+              </svg>存为草稿</el-button>
+            <el-button class="iconfont iconfanhui el-button-style" type="info" plain>
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-back"></use>
+              </svg>返回</el-button>
           </span>
         </div>
         <div style="height: 50px">

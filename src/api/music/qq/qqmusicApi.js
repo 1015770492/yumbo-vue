@@ -5,7 +5,7 @@
  * 将apiUrl替换成自己服务器的地址即可
  * @type {string}
  */
-let apiUrl='http://api.qq.jsososo.com';
+let apiUrl='http://yumbo.top:3300';
 import ajax from '../../ajax';    //导入封装的axios
 
 /**

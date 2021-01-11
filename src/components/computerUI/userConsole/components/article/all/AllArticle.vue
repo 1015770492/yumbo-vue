@@ -1,10 +1,10 @@
 <template>
-<div>这是所有文章组件</div>
+  <div>这是所有文章组件</div>
 </template>
 
 <script>
 export default {
-name: "AllArticle"
+  name: "AllArticle"
 }
 </script>
 

@@ -5,7 +5,6 @@ import UserCenter from "@/components/computerUI/userConsole/components/userCente
 import Video from "@/components/computerUI/userConsole/components/video/Video";
 import Images from "@/components/computerUI/userConsole/components/images/Images";
 import MyFile from "@/components/computerUI/userConsole/components/file/MyFile";
-import AllArticle from "@/components/computerUI/userConsole/components/article/all/AllArticle";
 import WriteArticle from "@/components/computerUI/userConsole/components/article/draft/WriteArticle";
 import Theme from "@/components/computerUI/userConsole/components/settings/theme/Theme";
 import Category from "@/components/computerUI/userConsole/components/article/category/Category";
@@ -15,6 +14,8 @@ import PowerControll from "@/components/computerUI/userConsole/components/user/p
 import UserStatistical from "@/components/computerUI/userConsole/components/statistical/user/UserStatistical";
 import ArticleStatistical from "@/components/computerUI/userConsole/components/statistical/article/ArticleStatistical";
 import UserComment from "@/components/computerUI/userConsole/components/settings/user/UserComment";
+import ShowArticle from "@/components/computerUI/userConsole/components/article/all/show/ShowArticle";
+import Index from "@/components/computerUI/visitor/index/Index";
 
 
 /**
@@ -30,6 +31,14 @@ export default [
         path: '/pc/login',
         name: '登录页面',
         component: Login
+    },
+    {
+        path: '/logout',
+        redirect: '/pc/logout'
+    },
+    {
+        path: '/pc/logout',
+        component: Index
     },
     {
         path: '/pc/admin',
@@ -53,7 +62,8 @@ export default [
                 component: MyFile
             }, {
                 path: 'article/manage/all',
-                component: AllArticle
+                // component: AllArticle
+                component: ShowArticle
             }, {
                 path: 'article/manage',
                 component: AdminMeau,
