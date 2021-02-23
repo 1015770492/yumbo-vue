@@ -1606,6 +1606,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 $(document).ready(function () {
   var stars = 800
   var $stars = $('.stars')

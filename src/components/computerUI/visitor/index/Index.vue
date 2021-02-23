@@ -31,7 +31,7 @@
 import Nav_Header_ComputerUI from './navigation/Nav_Header_ComputerUI'
 
 export default {
-  name: 'hello',
+  name: 'index',
   data() {
     return {
       screenWidth: document.documentElement.clientWidth,//屏幕宽度

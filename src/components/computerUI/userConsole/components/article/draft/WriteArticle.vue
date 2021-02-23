@@ -1,12 +1,12 @@
 <template>
   <div>
     <!--    阿里云的字体样式 -->
-
     <el-header>
       <el-input v-model="articleForm.title" placeholder="输入文章标题" maxlength="100" show-word-limit></el-input>
     </el-header>
-    <mavon-editor v-model="articleForm.value" :ishljs="true" codeStyle="atom-one-dark"
-                  style="max-height: 72vh;padding: 20px;min-height: 50vh"></mavon-editor>
+    <div class="markdown">
+      <markdown-pro :height="500" :value="articleForm.value" theme="oneDark"/>
+    </div>
     <el-footer>
       <el-form ref="form" :model="articleForm">
         <!-- 标签-->
@@ -95,8 +95,13 @@
 </template>
 
 <script>
+import {MarkdownPro} from 'vue-meditor'
+
 export default {
   name: 'AddArticle',
+  components: {
+    MarkdownPro
+  },
   data() {
     return {
       inputVisible: false,
@@ -105,7 +110,42 @@ export default {
       inputValue2: '',
       articleForm: {
         title: '',
-        value: '',
+        value: "### 预览显示文章组件\n" +
+            "这是一个预览显示文章\n" +
+            "\n" +
+            "```java\n" +
+            "import org.aspectj.lang.annotation.*;\n" +
+            "import org.springframework.stereotype.Component;\n" +
+            "\n" +
+            "@Aspect\n" +
+            "@Component\n" +
+            "public class UserControllerAop{\n" +
+            "    @Before(\"execution(public String com.example.demo.controller.UserController.div(..))\")\n" +
+            "    public void testIndexBefore(){\n" +
+            "        System.out.println(\"=====》before\");\n" +
+            "    }\n" +
+            "    @After(value = \"execution(public String com.example.demo.controller.UserController.div(..))\")\n" +
+            "    public void testIndexAfter(){\n" +
+            "        System.out.println(\"======》after\");\n" +
+            "    }\n" +
+            "    @AfterThrowing(value = \"execution(public String com.example.demo.controller.UserController.div(..))\")\n" +
+            "    public void testIndexAfterThrowing(){\n" +
+            "        System.out.println(\"======》AfterThrowing\");\n" +
+            "    }\n" +
+            "    @Around(value = \"execution(public String com.example.demo.controller.UserController.div(..))\")\n" +
+            "    public void testIndexAround(){\n" +
+            "        System.out.println(\"======》Around\");\n" +
+            "    }\n" +
+            "    @AfterReturning(value = \"execution(public String com.example.demo.controller.UserController.div(..))\")\n" +
+            "    public void testIndexAfterReturning(){\n" +
+            "        System.out.println(\"======》Around\");\n" +
+            "    }\n" +
+            "    \n" +
+            "}\n" +
+            "```\n" +
+            "### 图片\n" +
+            "\n" +
+            "![测试图片](https://th.wallhaven.cc/small/3k/3kp6yv.jpg)",
         showLimit: '1',
         tags: [],
         categories: [],
@@ -176,13 +216,31 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylessheet/stylus">
+
+>>> *
+  /* 设置滚动条的样式 */
+
+  ::-webkit-scrollbar
+    height 5px /*设置横向滚动条的高度*/
+    width 5px /*设置纵向向滚动条宽带*/
+    background-color: rgba(0, 0, 0, .3)
+
+  ::-webkit-scrollbar-track
+    display none
+    border-radius 10px
+
+  /* 滚动条滑块样式 */
+
+  ::-webkit-scrollbar-thumb
+    background-color hsla(0, 0%, 100%, .5)
+    border-radius 10px
+
+  ::-webkit-scrollbar-track-piece
+    border-radius 10px
+
 .iconfont
   font-size 16px
   margin-right 8px
-
-
-.el-tag + .el-tag
-  margin-left 10px
 
 
 .button-new-tag

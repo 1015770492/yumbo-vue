@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {reqLoginEmail} from "@/api/music/163/163musicApi";
+import {reqLoginPhone} from "@/api/music/163/163musicApi";
 
 export default {
   name: 'App',
@@ -14,7 +14,7 @@ export default {
       return flag;
     },
     async test() {
-      const result = await reqLoginEmail('yjh15727742367@163.com', 'abc159951');
+      const result = await reqLoginPhone('15727742367', 'yjh123456');
       console.log(result);
     }
   },
